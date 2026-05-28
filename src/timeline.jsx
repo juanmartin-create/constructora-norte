@@ -100,7 +100,7 @@ const Timeline = () => {
         <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, transparent 50%, rgba(12,12,13,0.4))" }} />
 
         {/* Overlay info */}
-        <div style={{
+        <div className="tl-overlay" style={{
           position: "absolute", top: 28, left: 28,
           color: "var(--paper)",
           background: "rgba(12,12,13,0.55)", backdropFilter: "blur(10px)",
@@ -108,25 +108,25 @@ const Timeline = () => {
           borderLeft: "2px solid var(--brass)",
           maxWidth: 400,
         }}>
-          <div className="t-mono" style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", opacity: 0.7, marginBottom: 6 }}>
+          <div className="t-mono tl-overlay-label" style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", opacity: 0.7, marginBottom: 6 }}>
             {phase.label} · Hito {String(phaseIdx + 1).padStart(2, "0")} de {String(PHASES.length).padStart(2, "0")}
           </div>
-          <div className="t-serif" style={{ fontSize: 32, letterSpacing: "-0.015em", marginBottom: 8 }}>
+          <div className="t-serif tl-overlay-title" style={{ fontSize: 32, letterSpacing: "-0.015em", marginBottom: 8 }}>
             {phase.title}
           </div>
-          <div style={{ fontSize: 14, opacity: 0.85, lineHeight: 1.5 }}>{phase.desc}</div>
+          <div className="tl-overlay-desc" style={{ fontSize: 14, opacity: 0.85, lineHeight: 1.5 }}>{phase.desc}</div>
         </div>
 
         {/* Right counter */}
-        <div style={{
+        <div className="tl-counter" style={{
           position: "absolute", top: 28, right: 28,
           color: "var(--paper)",
           textAlign: "right",
         }}>
-          <div className="t-mono" style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", opacity: 0.7, marginBottom: 4 }}>
+          <div className="t-mono tl-counter-label" style={{ fontSize: 10, letterSpacing: "0.2em", textTransform: "uppercase", opacity: 0.7, marginBottom: 4 }}>
             Avance de obra
           </div>
-          <div className="t-serif" style={{ fontSize: 64, lineHeight: 1, letterSpacing: "-0.02em" }}>
+          <div className="t-serif tl-counter-pct" style={{ fontSize: 64, lineHeight: 1, letterSpacing: "-0.02em" }}>
             {Math.round(pos * 100)}<span style={{ fontSize: 32, opacity: 0.7 }}>%</span>
           </div>
         </div>
