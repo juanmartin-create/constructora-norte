@@ -66,7 +66,7 @@ const Timeline = () => {
         num={3}
         eyebrow="Proceso constructivo"
         title={<>24 meses<br/><em style={{ color: "#9a7438" }}>de pala a llave.</em></>}
-        lede="Movés el deslizador y ves la obra avanzar. Cronograma típico de una torre de 18 plantas: hitos, plazos y entrega."
+        lede="Movés el deslizador y ves la obra avanzar. Hitos, plazos y entrega."
       />
 
       {/* Image stage */}
