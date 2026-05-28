@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#0c0c0d" />
+<meta name="color-scheme" content="dark light" />
+
+<title>Constructora Norte — Diseño, construcción y desarrollo inmobiliario</title>
+<meta name="description" content="Constructora Norte: 38 años construyendo en Buenos Aires. 142 obras finalizadas, 386.000 m² edificados. Diseño, llave en mano, reformas y desarrollo inmobiliario. Agendá tu visita." />
+<meta name="author" content="Constructora Norte" />
+<link rel="canonical" href="https://constructora-norte.netlify.app/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="es_AR" />
+<meta property="og:site_name" content="Constructora Norte" />
+<meta property="og:title" content="Constructora Norte — Carta de presentación interactiva" />
+<meta property="og:description" content="142 obras finalizadas. 386.000 m² edificados. Pieza interactiva para conocer cómo trabajamos." />
+<meta property="og:image" content="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="800" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Constructora Norte" />
+<meta name="twitter:description" content="142 obras. 38 años. Una sola firma." />
+<meta name="twitter:image" content="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80" />
+
+<!-- Favicon SVG inline (glifo Δ con línea, paleta brass sobre ink) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%230c0c0d'/><path d='M16 7 L25 24 L7 24 Z' fill='none' stroke='%23c4a26a' stroke-width='2' stroke-linejoin='round'/><line x1='4' y1='27' x2='28' y2='27' stroke='%23c4a26a' stroke-width='1.5'/></svg>" />
+
+<!-- Preconnects: fonts + image CDN (críticos para LCP) -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+<link rel="dns-prefetch" href="https://unpkg.com" />
+
+<!-- Fonts (display=swap evita FOIT) -->
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+<!-- Preload del hero (LCP) -->
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&q=78&auto=format&fm=webp" fetchpriority="high" />
+
+<link rel="stylesheet" href="src/styles.css" />
+
+<!-- React 18 (production builds) -->
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<!-- Babel standalone — compila JSX en el cliente. En un próximo build hay que precompilar para eliminarlo. -->
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<noscript>
+  <div style="font-family:Inter,system-ui,sans-serif;padding:48px;max-width:640px;margin:0 auto;color:#0c0c0d">
+    <h1 style="font-family:'Instrument Serif',serif;font-size:48px;margin-bottom:16px">Constructora Norte</h1>
+    <p>Esta carta de presentación es interactiva y necesita JavaScript activado para funcionar.</p>
+    <p>Si querés contactarnos directamente: <a href="mailto:hola@constructoranorte.com.ar">hola@constructoranorte.com.ar</a> · <a href="tel:+541147778080">+54 11 4777 8080</a></p>
+  </div>
+</noscript>
+
+<div id="root"></div>
+
+<script type="text/babel" data-presets="react" src="src/common.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/nav.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/hero.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/before-after.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/projects.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/timeline.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/floorplan.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/materials.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/tour.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/calculator.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/process.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/services.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/contact.jsx"></script>
+<script type="text/babel" data-presets="react" src="src/app.jsx"></script>
+
+<!-- JSON-LD: LocalBusiness -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "Constructora Norte",
+  "description": "Diseño, construcción llave en mano, reformas integrales y desarrollo inmobiliario.",
+  "address": { "@type": "PostalAddress", "addressLocality": "Buenos Aires", "addressCountry": "AR" },
+  "email": "hola@constructoranorte.com.ar",
+  "telephone": "+54 11 4777 8080",
+  "areaServed": "AR"
+}
+</script>
+</body>
+</html>

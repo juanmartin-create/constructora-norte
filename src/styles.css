@@ -1,0 +1,338 @@
+/* ===========================================================
+   Constructora Norte — Sistema visual
+   Paleta: ink (negro carbón), paper (crema), brass (latón cálido)
+   =========================================================== */
+
+:root {
+  /* Colores */
+  --ink: #0c0c0d;
+  --ink-2: #16161a;
+  --ink-3: #1f1f24;
+  --paper: #f1ece2;
+  --paper-2: #e6dfd0;
+  --paper-3: #cdc4b1;
+  --brass: #c4a26a;
+  --brass-bright: #d9b97f;
+  --line: rgba(241, 236, 226, 0.13);
+  --line-strong: rgba(241, 236, 226, 0.28);
+  --line-ink: rgba(12, 12, 13, 0.13);
+
+  /* Tipografías */
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --sans: 'Inter Tight', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  /* Densidad (tweak) */
+  --density: 1;
+  --section-pad-y: calc(160px * var(--density));
+  --section-pad-x: clamp(24px, 5vw, 80px);
+  --gutter: calc(48px * var(--density));
+
+  /* Anim intensity (tweak) — 0 off, 1 subtle, 2 full */
+  --anim: 2;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+
+img { display: block; max-width: 100%; }
+button { font-family: inherit; cursor: pointer; }
+
+::selection { background: var(--brass); color: var(--ink); }
+
+/* ===========================================================
+   Tipografía
+   =========================================================== */
+
+.t-serif { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; }
+.t-mono  { font-family: var(--mono); font-weight: 400; letter-spacing: 0.02em; }
+.t-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--paper-3);
+}
+
+h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+
+.display {
+  font-family: var(--serif);
+  font-size: clamp(64px, 11vw, 200px);
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+}
+.h2 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 5.5vw, 88px);
+  line-height: 0.96;
+  letter-spacing: -0.02em;
+}
+.h3 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.05;
+  letter-spacing: -0.015em;
+}
+.lede {
+  font-size: clamp(17px, 1.4vw, 21px);
+  line-height: 1.5;
+  color: var(--paper-2);
+  max-width: 56ch;
+  text-wrap: pretty;
+}
+
+/* ===========================================================
+   Layout
+   =========================================================== */
+
+.section {
+  padding: var(--section-pad-y) var(--section-pad-x);
+  position: relative;
+}
+.section--light { background: var(--paper); color: var(--ink); }
+.section--light .t-eyebrow { color: rgba(12,12,13,0.55); }
+.section--light .lede { color: rgba(12,12,13,0.7); }
+
+.section-head {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  margin-bottom: calc(80px * var(--density));
+  align-items: end;
+}
+.section-head__num { padding-top: 8px; }
+.section-head__title { max-width: 14ch; }
+@media (max-width: 720px) {
+  .section-head { grid-template-columns: 1fr; gap: 20px; }
+  .section-head__num { padding-top: 0; }
+}
+
+.hr-line {
+  height: 1px;
+  background: var(--line);
+  width: 100%;
+}
+.section--light .hr-line { background: var(--line-ink); }
+
+/* ===========================================================
+   Botones
+   =========================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 22px 14px 24px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: inherit;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+.btn--solid { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.btn--solid:hover { background: var(--brass); border-color: var(--brass); color: var(--ink); }
+.btn--ghost:hover { background: var(--paper); color: var(--ink); }
+.section--light .btn--solid { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.section--light .btn--solid:hover { background: var(--brass); border-color: var(--brass); color: var(--ink); }
+.section--light .btn--ghost:hover { background: var(--ink); color: var(--paper); }
+
+.btn__arrow {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid currentColor;
+  border-right: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+}
+.btn:hover .btn__arrow { transform: rotate(45deg) translate(2px, -2px); }
+
+/* ===========================================================
+   Utilidades
+   =========================================================== */
+
+.brass { color: var(--brass); }
+.italic { font-style: italic; }
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.fade-in.is-visible { opacity: 1; transform: translateY(0); }
+
+/* Cuando anim=0, desactivar transiciones */
+[data-anim="0"] * { transition: none !important; animation: none !important; }
+[data-anim="0"] .fade-in { opacity: 1; transform: none; }
+
+/* ===========================================================
+   Imágenes con marco editorial
+   =========================================================== */
+
+.frame {
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-2);
+}
+.frame img { width: 100%; height: 100%; object-fit: cover; }
+.frame__caption {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(12,12,13,0.55);
+  backdrop-filter: blur(8px);
+  padding: 6px 10px;
+  border-radius: 2px;
+}
+
+/* Scrollbar minimal */
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--ink-3); }
+::-webkit-scrollbar-thumb:hover { background: var(--paper-3); }
+
+/* ===========================================================
+   MOBILE — pasada completa para evitar superposiciones
+   =========================================================== */
+
+/* Tablet & menores (<=920px): primera reducción */
+@media (max-width: 920px) {
+  :root {
+    --section-pad-y: 80px;
+    --gutter: 32px;
+  }
+  .section-head { margin-bottom: 36px !important; }
+}
+
+/* Mobile (<=760px): reducción agresiva + stacks */
+@media (max-width: 760px) {
+  :root {
+    --section-pad-y: 64px;
+  }
+  body { font-size: 15px; }
+
+  /* Tipografía mobile — bajar mínimos del clamp para que no rompan el ancho */
+  .display { font-size: clamp(40px, 11vw, 64px) !important; line-height: 0.98; max-width: 100% !important; }
+  .h2      { font-size: clamp(30px, 9vw, 56px)  !important; }
+  .h3      { font-size: clamp(22px, 6vw, 36px)  !important; }
+  .lede    { font-size: 15px !important; max-width: 100% !important; }
+
+  /* Section head: stack vertical + menos margin */
+  .section-head { margin-bottom: 28px !important; gap: 12px !important; }
+
+  /* Hero: metrics 2x2, padding compacto */
+  .hero-metrics {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 18px !important;
+    padding: 18px clamp(20px,5vw,32px) !important;
+  }
+  .hero-metrics .t-serif { font-size: clamp(26px, 9vw, 40px) !important; }
+  .hero-metrics .t-mono  { font-size: 9px !important; }
+
+  /* Stack todos los grids 2-col */
+  .mat-grid,
+  .calc-grid,
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+
+  /* Plano: ya stackea, pero forzar */
+  .plan-grid { grid-template-columns: 1fr !important; gap: 16px !important; }
+
+  /* Servicios: número + título en una fila, descripción debajo */
+  .svc-row {
+    grid-template-columns: 48px 1fr !important;
+    grid-template-areas:
+      "num title"
+      "desc desc"
+      "arrow arrow" !important;
+    gap: 12px 16px !important;
+  }
+  .svc-row > *:nth-child(1) { grid-area: num; }
+  .svc-row > *:nth-child(2) { grid-area: title; }
+  .svc-row > *:nth-child(3) { grid-area: desc; }
+  .svc-row > *:nth-child(4) { grid-area: arrow; justify-self: end; }
+
+  /* Tour iframe: aspect más cuadrado para mobile, alto manejable */
+  .tour-stage { aspect-ratio: 4 / 5 !important; max-height: 70vh !important; }
+
+  /* Antes/Después: stage más alto en portrait */
+  .ba-stage { aspect-ratio: 4 / 5 !important; max-height: 70vh !important; max-width: 100% !important; }
+
+  /* Hero: ocultar scroll indicator y ajustar corner labels */
+  .hero-scroll-indicator { display: none !important; }
+  .hero-corners { top: 90px !important; font-size: 9px !important; }
+  .hero-corners .t-mono { font-size: 9px !important; line-height: 1.4 !important; }
+}
+
+/* Smartphone chico (<=480px): última pasada */
+@media (max-width: 480px) {
+  :root { --section-pad-y: 48px; }
+  body { font-size: 14px; }
+  .display { font-size: clamp(34px, 12vw, 52px) !important; }
+  .h2      { font-size: clamp(26px, 9vw, 40px)  !important; }
+  .lede    { font-size: 14px !important; }
+}
+
+/* Anti-overflow horizontal global */
+@media (max-width: 920px) {
+  html, body { overflow-x: hidden; max-width: 100vw; }
+  .section { overflow-x: hidden; }
+}
+
+/* ===========================================================
+   Cursor de antes/después
+   =========================================================== */
+
+.ba-cursor {
+  position: absolute;
+  pointer-events: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  border: 1px solid var(--paper);
+  background: rgba(12,12,13,0.35);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper);
+  transform: translate(-50%, -50%);
+  z-index: 4;
+}

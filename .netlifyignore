@@ -1,0 +1,7 @@
+reference-finished/
+README.md
+node_modules/
+package.json
+package-lock.json
+.compress-images.js
+.dev-server.js

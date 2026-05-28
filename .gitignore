@@ -1,0 +1,23 @@
+# Dependencias (instaladas solo para compresión local)
+node_modules/
+package.json
+package-lock.json
+
+# Scripts de desarrollo local — no se despliegan
+.dev-server.js
+.compress-images.js
+
+# Archivos de referencia (fotos originales sin comprimir, instrucciones)
+# Pesados y privados — no van al repo público
+reference-finished/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*

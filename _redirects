@@ -1,0 +1,3 @@
+# Forzar HTTPS (Netlify ya lo hace por defecto pero lo dejamos explícito)
+# SPA-style fallback: la web es one-page, cualquier ruta vuelve al index
+/*  /index.html  200
