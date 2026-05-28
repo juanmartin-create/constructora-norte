@@ -148,21 +148,23 @@ const BeforeAfter = () => {
         </div>
 
         {/* Captions */}
-        <div className="t-mono" style={{
+        <div className="t-mono ba-cap-antes" style={{
           position: "absolute", top: 24, left: 24,
           background: "rgba(12,12,13,0.6)", backdropFilter: "blur(8px)",
           padding: "8px 14px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase",
           color: "var(--paper)", zIndex: 2, opacity: pos > 0.04 ? 1 : 0, transition: "opacity 0.3s",
         }}>
-          ◄ Antes · {project.beforeLabel}
+          <span className="ba-cap-full">◄ Antes · {project.beforeLabel}</span>
+          <span className="ba-cap-short">◄ Antes</span>
         </div>
-        <div className="t-mono" style={{
+        <div className="t-mono ba-cap-despues" style={{
           position: "absolute", top: 24, right: 24,
           background: "rgba(12,12,13,0.6)", backdropFilter: "blur(8px)",
           padding: "8px 14px", fontSize: 10, letterSpacing: "0.18em", textTransform: "uppercase",
           color: "var(--paper)", zIndex: 2, opacity: pos < 0.96 ? 1 : 0, transition: "opacity 0.3s",
         }}>
-          {project.afterLabel} · Después ►
+          <span className="ba-cap-full">{project.afterLabel} · Después ►</span>
+          <span className="ba-cap-short">Después ►</span>
         </div>
 
         {/* Slider handle */}
@@ -187,7 +189,7 @@ const BeforeAfter = () => {
         </div>
 
         {/* Project meta bottom-left */}
-        <div style={{
+        <div className="ba-meta" style={{
           position: "absolute", left: 24, bottom: 24, right: 24,
           display: "flex", justifyContent: "space-between", alignItems: "flex-end",
           color: "var(--paper)", zIndex: 2, pointerEvents: "none",
@@ -214,7 +216,7 @@ const BeforeAfter = () => {
       </div>
 
       {/* Helper */}
-      <div style={{ display: "flex", justifyContent: "space-between", marginTop: 16, color: "var(--paper-3)" }}>
+      <div className="ba-helper" style={{ display: "flex", justifyContent: "space-between", marginTop: 16, color: "var(--paper-3)", gap: 12, flexWrap: "wrap" }}>
         <div className="t-mono" style={{ fontSize: 11, letterSpacing: "0.18em", textTransform: "uppercase" }}>
           ↔ Arrastrar · Click para fijar
         </div>

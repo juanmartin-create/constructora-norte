@@ -181,7 +181,7 @@ const Timeline = () => {
                 display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between",
                 pointerEvents: "none",
               }}>
-                <div className="t-mono" style={{ fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", color: active ? "var(--ink)" : "rgba(12,12,13,0.4)", whiteSpace: "nowrap" }}>
+                <div className="t-mono tl-month" style={{ fontSize: 10, letterSpacing: "0.15em", textTransform: "uppercase", color: active ? "var(--ink)" : "rgba(12,12,13,0.4)", whiteSpace: "nowrap" }}>
                   {ph.label}
                 </div>
                 <div style={{
@@ -191,7 +191,7 @@ const Timeline = () => {
                   border: "1px solid var(--ink)",
                   marginTop: 32, transition: "all 0.2s",
                 }} />
-                <div className="t-mono" style={{ fontSize: 9, letterSpacing: "0.12em", color: "rgba(12,12,13,0.5)", textTransform: "uppercase", whiteSpace: "nowrap" }}>
+                <div className="t-mono tl-phase" style={{ fontSize: 9, letterSpacing: "0.12em", color: "rgba(12,12,13,0.5)", textTransform: "uppercase", whiteSpace: "nowrap" }}>
                   {ph.title}
                 </div>
               </div>

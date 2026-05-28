@@ -295,7 +295,38 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   .hero-scroll-indicator { display: none !important; }
   .hero-corners { top: 90px !important; font-size: 9px !important; }
   .hero-corners .t-mono { font-size: 9px !important; line-height: 1.4 !important; }
+
+  /* ─── Timeline: ocultar mes y nombre de fase (info ya está en overlay) ─── */
+  .tl-month, .tl-phase { display: none !important; }
+
+  /* ─── Before/After captions: versión corta en mobile ─── */
+  .ba-cap-full { display: none; }
+  .ba-cap-short { display: inline; }
+  .ba-cap-antes, .ba-cap-despues {
+    top: 12px !important; padding: 6px 10px !important; font-size: 9px !important;
+  }
+  .ba-cap-antes { left: 12px !important; }
+  .ba-cap-despues { right: 12px !important; }
+
+  /* ─── Before/After meta inferior: stack vertical ─── */
+  .ba-meta {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    left: 14px !important; right: 14px !important; bottom: 14px !important;
+  }
+  .ba-meta > div:nth-child(2) {
+    gap: 18px !important;
+  }
+  .ba-meta .t-serif { font-size: clamp(20px, 5.5vw, 28px) !important; }
+
+  /* ─── Helper antes/después: stack si no entra ─── */
+  .ba-helper .t-mono { font-size: 9px !important; }
 }
+
+/* Default desktop: caption completa, short oculto */
+.ba-cap-full { display: inline; }
+.ba-cap-short { display: none; }
 
 /* Smartphone chico (<=480px): última pasada */
 @media (max-width: 480px) {
