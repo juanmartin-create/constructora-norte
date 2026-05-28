@@ -226,6 +226,10 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
    MOBILE — pasada completa para evitar superposiciones
    =========================================================== */
 
+/* Defaults desktop (deben ir ANTES del media query para que mobile pueda sobrescribir) */
+.ba-cap-full { display: inline; }
+.ba-cap-short { display: none; }
+
 /* Tablet & menores (<=920px): primera reducción */
 @media (max-width: 920px) {
   :root {
@@ -320,34 +324,30 @@ h1, h2, h3, h4 { margin: 0; font-weight: 400; }
   /* Botón play oculto: en mobile el play no aplica bien con el track corto */
   .tl-play { display: none !important; }
 
-  /* ─── Before/After captions: versión corta en mobile ─── */
-  .ba-cap-full { display: none; }
-  .ba-cap-short { display: inline; }
-  .ba-cap-antes, .ba-cap-despues {
-    top: 12px !important; padding: 6px 10px !important; font-size: 9px !important;
-  }
-  .ba-cap-antes { left: 12px !important; }
-  .ba-cap-despues { right: 12px !important; }
+  /* ─── Before/After: limpieza radical en mobile ─── */
+  /* Ocultar los dos badges de arriba — la flecha del slider ya dice todo */
+  .ba-cap-antes, .ba-cap-despues { display: none !important; }
 
-  /* ─── Before/After meta inferior: stack vertical ─── */
+  /* Meta inferior: solo el nombre, ocultar tipo/ubicación + superficie/unidades */
   .ba-meta {
     flex-direction: column !important;
     align-items: flex-start !important;
-    gap: 10px !important;
+    gap: 0 !important;
     left: 14px !important; right: 14px !important; bottom: 14px !important;
   }
-  .ba-meta > div:nth-child(2) {
-    gap: 18px !important;
+  .ba-meta > div:nth-child(2) { display: none !important; }
+  .ba-meta > div:first-child > div.t-mono { display: none !important; }
+  .ba-meta .t-serif {
+    font-size: 22px !important;
+    background: rgba(12,12,13,0.55);
+    backdrop-filter: blur(8px);
+    padding: 6px 12px;
   }
-  .ba-meta .t-serif { font-size: clamp(20px, 5.5vw, 28px) !important; }
 
-  /* ─── Helper antes/después: stack si no entra ─── */
-  .ba-helper .t-mono { font-size: 9px !important; }
+  /* Helper inferior: ocultar (drag obvio) */
+  .ba-helper { display: none !important; }
 }
 
-/* Default desktop: caption completa, short oculto */
-.ba-cap-full { display: inline; }
-.ba-cap-short { display: none; }
 
 /* Smartphone chico (<=480px): última pasada */
 @media (max-width: 480px) {
